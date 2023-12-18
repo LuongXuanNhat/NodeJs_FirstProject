@@ -7,6 +7,7 @@ var mongoose = require('mongoose');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var productsRouter = require('./routes/products');
 var itemsRouter = require('./routes/items');
 
 var app = express();
@@ -23,9 +24,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/products', productsRouter);
 app.use('/items',itemsRouter);
 
-mongoose.connect("mongodb://127.0.0.1:27017/TestS2");
+mongoose.connect("mongodb://127.0.0.1:27017/local");
 mongoose.connection.once('open', function(){
   console.log("thanh cong");
 });
