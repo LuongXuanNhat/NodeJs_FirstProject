@@ -5,10 +5,12 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose');
 
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var productsRouter = require('./routes/products');
 var itemsRouter = require('./routes/items');
+var authenRouter = require('./routes/authen');
 
 var app = express();
 
@@ -26,6 +28,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/products', productsRouter);
 app.use('/items',itemsRouter);
+app.use('/authen',authenRouter);
 
 mongoose.connect("mongodb://127.0.0.1:27017/local");
 mongoose.connection.once('open', function(){
