@@ -30,5 +30,16 @@ module.exports ={
     },
     login:function ( userName, password){
         return SchemaUser.checkLogin(userName,password);
-    }
+    },
+    getByEmail: function (email) {
+        return SchemaUser.findOne({ email: email }).exec();
+    },
+    getByTokenForgot: function (token) {
+        return SchemaUser.findOne(
+            {
+                tokenForgot: token,
+                tokenForgotExp: { $gte: Date.now() }
+            }
+        ).exec();
+    },
 }

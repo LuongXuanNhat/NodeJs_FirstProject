@@ -5,11 +5,11 @@ const util = require('util')
 var options={
     name:{
         min: 10,
-        max : 80
+        max : 60
     },
     description:{
         min:10,
-        max:80
+        max:60
     }
 }
 

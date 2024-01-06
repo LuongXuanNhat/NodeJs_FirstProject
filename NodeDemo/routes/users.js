@@ -37,7 +37,8 @@ router.post('/add',validate.validator(),
     const newUser = await modelUser.createUser({
       userName: req.body.userName,
       email: req.body.email,
-      password: req.body.password
+      password: req.body.password,
+      department_k:req.body.department_k
     })
     responseData.responseReturn(res, 200, true, newUser);
   }
